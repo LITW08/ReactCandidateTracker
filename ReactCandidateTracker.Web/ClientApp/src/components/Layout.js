@@ -9,7 +9,7 @@ const Layout = ({ children }) => {
             <header>
                 <nav className="navbar navbar-expand-sm navbar-dark fixed-top bg-dark border-bottom box-shadow">
                     <div className="container">
-                        <a className="navbar-brand">React Blog Site</a>
+                        <a className="navbar-brand">Candidate Tracker</a>
                         <button className="navbar-toggler" type="button" data-toggle="collapse"
                             data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                             aria-expanded="false" aria-label="Toggle navigation">
