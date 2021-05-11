@@ -1,9 +1,9 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { CandidateCountsContext } from '../CandidateCountsContext';
+import { useCandidateContext } from '../CandidateCountsContext';
 
 const Layout = ({ children }) => {
-    const { pending, confirmed, refused } = useContext(CandidateCountsContext).candidateCounts;
+    const { pending, confirmed, refused } = useCandidateContext().candidateCounts;
     return (
         <div>
             <header>

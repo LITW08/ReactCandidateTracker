@@ -4,7 +4,7 @@ namespace ReactCandidateTracker.Data
 {
     public class CandidateTrackerContext : DbContext
     {
-        private string _connectionString;
+        private readonly string _connectionString;
 
         public CandidateTrackerContext(string connectionString)
         {

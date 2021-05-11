@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -14,7 +15,7 @@ namespace ReactCandidateTracker.Web.Controllers
     [ApiController]
     public class CandidatesController : ControllerBase
     {
-        private string _connectionString;
+        private readonly string _connectionString;
 
         public CandidatesController(IConfiguration configuration)
         {

@@ -7,7 +7,7 @@ namespace ReactCandidateTracker.Data
 {
     public class CandidateRepository
     {
-        private string _connectionString;
+        private readonly string _connectionString;
 
         public CandidateRepository(string connectionString)
         {

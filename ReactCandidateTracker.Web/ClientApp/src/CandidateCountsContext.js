@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import axios from 'axios';
 
 const CandidateCountsContext = React.createContext();
@@ -31,4 +31,6 @@ const CandidateCountsContextComponent = ({children}) => {
     )
 }
 
-export { CandidateCountsContext, CandidateCountsContextComponent }
+const useCandidateContext = () => useContext(CandidateCountsContext);
+
+export { useCandidateContext, CandidateCountsContextComponent }

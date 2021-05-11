@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import produce from 'immer';
-import { CandidateCountsContext } from '../CandidateCountsContext';
+import { useCandidateContext } from '../CandidateCountsContext';
 import { useParams } from 'react-router-dom';
 
 const PendingDetails = () => {
@@ -15,7 +15,7 @@ const PendingDetails = () => {
         status: ''
     });
 
-    const {updateCandidateCounts} = useContext(CandidateCountsContext);
+    const {updateCandidateCounts} = useCandidateContext();
 
     useEffect(() => {
         const loadCandidate = async () => {
@@ -28,7 +28,7 @@ const PendingDetails = () => {
     const onUpdateStatusClick = async status => {
         await axios.post('/api/candidates/updatestatus', { id: candidateId, status });
         const nextState = produce(candidate, draft => {
-            draft.status = status === 1 ? 'Confirmed' : 'Refused'
+            draft.status = status;
         });
         setCandidate(nextState);
         await updateCandidateCounts();
@@ -46,8 +46,8 @@ const PendingDetails = () => {
                     <h4>Notes:</h4>
                     <p>{notes}</p>
                     {status === 'Pending' && <div>
-                        <button onClick={() => onUpdateStatusClick(1)} className="btn btn-primary">Confirm</button>
-                        <button onClick={() => onUpdateStatusClick(2)} className="btn btn-danger">Refuse</button>
+                        <button onClick={() => onUpdateStatusClick('Confirmed')} className="btn btn-primary">Confirm</button>
+                        <button onClick={() => onUpdateStatusClick('Refused')} className="btn btn-danger">Refuse</button>
                     </div>}
                 </div>
             </div>

@@ -1,8 +1,8 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import produce from 'immer';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
-import { CandidateCountsContext } from '../CandidateCountsContext';
+import { useCandidateContext } from '../CandidateCountsContext';
 
 const AddCandidate = () => {
     const [formData, setFormData] = useState({
@@ -12,7 +12,7 @@ const AddCandidate = () => {
         phoneNumber: '',
         notes: ''
     });
-    const { updateCandidateCounts } = useContext(CandidateCountsContext);;
+    const { updateCandidateCounts } = useCandidateContext();
 
     const history = useHistory();
 
